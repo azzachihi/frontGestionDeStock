@@ -1,0 +1,19 @@
+<h2>Liste des providers</h2>
+<table class="table" border="2">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Adress</th>
+    <th *ngIf="loginService.srole !='User'">Suppression</th>
+    <th *ngIf="loginService.srole !='User'">Modification</th>
+  </tr>
+  <tr *ngFor="let provider of providers">
+    <td>{{provider.id}}</td>
+    <td>{{provider.name}}</td>
+    <td>{{provider.address}}</td>
+    <td>{{provider.email}}</td>
+    <td *ngIf="loginService.srole !='User'"><button  type="button" class="btn btn-danger" (click)="deleteProvider(provider)" >Supprimer</button></td>
+    <td *ngIf="loginService.srole !='User'"><button  type="button" class="btn btn-warning" (click)="updateProvider(provider)" >Modifier</button></td>
+  </tr>
+</table>
